@@ -14,7 +14,7 @@ public class JavaTimeTimeProvider implements TimeProvider {
 
     public JavaTimeTimeProvider(Long initCounter){
         started = false;
-        totalSecondRuntime = 0;
+        totalSecondRuntime = initCounter;
         secondStoped = 0;
         this.initCounter = initCounter;
 

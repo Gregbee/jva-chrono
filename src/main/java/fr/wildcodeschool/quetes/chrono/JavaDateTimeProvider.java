@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class JavaDateTimeProvider implements TimeProvider {
 
+    private final long initCounter;
     private Date startDate;
     private Date stopDate;
     private boolean started;
@@ -12,12 +13,11 @@ public class JavaDateTimeProvider implements TimeProvider {
     private int minutes;
     private int seconds;
 
-    public JavaDateTimeProvider(){
+    public JavaDateTimeProvider(long initCounter){
         started = false;
-        totalSecondRuntime = 0;
+        totalSecondRuntime = initCounter;
         secondStoped = 0;
-        minutes = 0;
-        seconds = 0;
+        this.initCounter = initCounter;
 
     }
 
@@ -69,7 +69,7 @@ public class JavaDateTimeProvider implements TimeProvider {
        }
        else{
 
-           totalSecondRuntime = ((new Date().getTime() - startDate.getTime()) / 1000) - secondStoped;
+           totalSecondRuntime = ((new Date().getTime() - startDate.getTime()) / 1000) - secondStoped + initCounter;
 
        }
         System.out.println(totalSecondRuntime);

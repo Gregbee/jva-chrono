@@ -13,6 +13,7 @@ public class Chrono {
 
   public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("EEEE d MMMM uuuu", Locale.FRENCH);
   public static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm");
+  private final boolean maximized;
   private JFrame frame;
   private final TimeProvider timeProvider;
   private boolean rolling;
@@ -37,9 +38,9 @@ public class Chrono {
   private JPanel currentTimePanel;
 
 
-  public Chrono(TimeProvider timeProvider) {
+  public Chrono(TimeProvider timeProvider, boolean maximized) {
     this.timeProvider = timeProvider;
-
+    this.maximized = maximized;
     startStopButton.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
@@ -94,6 +95,10 @@ public class Chrono {
 
     frame.setContentPane(mainPanel);
     frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    if(maximized){
+      frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+    }
     frame.pack();
     frame.setVisible(true);
   }

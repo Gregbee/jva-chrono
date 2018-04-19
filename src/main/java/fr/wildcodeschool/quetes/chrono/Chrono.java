@@ -95,6 +95,9 @@ public class Chrono {
 
     frame.setContentPane(mainPanel);
     frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    if(maximized){
+      frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+    }
     frame.pack();
     frame.setVisible(true);
   }

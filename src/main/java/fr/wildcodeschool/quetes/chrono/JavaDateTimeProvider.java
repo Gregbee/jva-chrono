@@ -6,12 +6,10 @@ public class JavaDateTimeProvider implements TimeProvider {
 
     private final long initCounter;
     private Date startDate;
-    private Date stopDate;
     private boolean started;
     private long totalSecondRuntime;
     private int secondStoped;
-    private int minutes;
-    private int seconds;
+
 
     public JavaDateTimeProvider(long initCounter){
         started = false;
@@ -44,9 +42,7 @@ public class JavaDateTimeProvider implements TimeProvider {
     @Override
     public void reset() {
         totalSecondRuntime = initCounter;
-        if(isStarted()){
-            startDate = new Date();
-        }
+        startDate = null;
         secondStoped = 0;
 
 

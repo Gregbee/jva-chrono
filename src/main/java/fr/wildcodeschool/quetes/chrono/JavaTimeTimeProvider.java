@@ -43,10 +43,8 @@ public class JavaTimeTimeProvider implements TimeProvider {
 
     @Override
     public void reset() {
-        totalSecondRuntime = 0;
-        if(isStarted()){
-            startDate = Instant.now();
-        }
+        totalSecondRuntime = initCounter;
+        startDate = Instant.now();
         secondStoped = 0;
 
 

@@ -43,7 +43,7 @@ public class JavaDateTimeProvider implements TimeProvider {
 
     @Override
     public void reset() {
-        totalSecondRuntime = 0;
+        totalSecondRuntime = initCounter;
         if(isStarted()){
             startDate = new Date();
         }

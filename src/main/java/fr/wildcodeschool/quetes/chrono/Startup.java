@@ -9,7 +9,12 @@ public class Startup {
             maximized = Boolean.parseBoolean(args[0]);
         }
         if(args.length > 1 && args[1] != null){
-            initCounter = Long.parseLong(args[1]);
+            try{
+                initCounter = Long.parseLong(args[1]);
+            }catch(NumberFormatException e){
+                e.printStackTrace();
+            }
+
         }
         TimeProvider tp = new JavaDateTimeProvider(initCounter);
         new Chrono(tp, maximized).roll();

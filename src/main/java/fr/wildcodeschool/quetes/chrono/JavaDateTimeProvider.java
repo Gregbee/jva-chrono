@@ -64,7 +64,7 @@ public class JavaDateTimeProvider implements TimeProvider {
            secondStoped++;
        }
        else{
-
+           startDate = startDate != null ? startDate : new Date();
            totalSecondRuntime = ((new Date().getTime() - startDate.getTime()) / 1000) - secondStoped + initCounter;
 
        }

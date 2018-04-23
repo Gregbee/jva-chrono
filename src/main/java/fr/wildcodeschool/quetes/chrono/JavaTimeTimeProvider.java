@@ -66,7 +66,7 @@ public class JavaTimeTimeProvider implements TimeProvider {
             secondStoped++;
         }
         else{
-
+            startDate = startDate != null ? startDate : Instant.now();
             totalSecondRuntime = ((Instant.now().toEpochMilli() - startDate.toEpochMilli()) / 1000) - secondStoped + initCounter;
 
         }
